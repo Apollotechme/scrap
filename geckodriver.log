@@ -1,0 +1,62 @@
+1692284569665	geckodriver	INFO	Listening on 127.0.0.1:44993
+1692284570155	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/usr ... ag" "--remote-debugging-port" "48181" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileplFA4I"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1692284570892	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-start_maximized"
+console.error: "Warning: unrecognized command line flag" "-headless flag"
+1692284570973	Marionette	INFO	Listening on port 40771
+WebDriver BiDi listening on ws://127.0.0.1:48181
+Read port: 40771
+1692284571163	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.error: ({})
+JavaScript error: resource://gre/modules/TelemetryUtils.sys.mjs, line 143: TypeError: date is undefined
+DevTools listening on ws://127.0.0.1:48181/devtools/browser/2b07da5b-1d01-4c04-8843-00595f608493
+console.error: ({})
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://consopt.www8.receita.fazenda.gov.br."
+console.error: ({})
+1692284588170	Marionette	INFO	Stopped listening on port 40771
+1692284633278	geckodriver	INFO	Listening on 127.0.0.1:38271
+1692284734109	geckodriver	INFO	Listening on 127.0.0.1:47413
+1692284734114	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/usr ... ge" "--remote-debugging-port" "33441" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofilerYcXDV"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1692284734491	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-disable-infobars"
+console.error: "Warning: unrecognized command line flag" "-disable-dev-shm-usage"
+1692284734566	Marionette	INFO	Listening on port 36077
+WebDriver BiDi listening on ws://127.0.0.1:33441
+Read port: 36077
+1692284734721	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.error: ({})
+JavaScript error: resource://gre/modules/TelemetryUtils.sys.mjs, line 143: TypeError: date is undefined
+DevTools listening on ws://127.0.0.1:33441/devtools/browser/43095c25-950a-4b2c-b64f-dee79cd00b89
+console.error: ({})
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://consopt.www8.receita.fazenda.gov.br."
+console.error: ({})
+1692284751512	Marionette	INFO	Stopped listening on port 36077
+1692285121737	geckodriver	INFO	Listening on 127.0.0.1:39623
+1692285121743	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/usr ... ge" "--remote-debugging-port" "57215" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileTXzmf1"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1692285122143	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-disable-infobars"
+console.error: "Warning: unrecognized command line flag" "-disable-dev-shm-usage"
+1692285122209	Marionette	INFO	Listening on port 33419
+WebDriver BiDi listening on ws://127.0.0.1:57215
+Read port: 33419
+1692285122369	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.error: ({})
+JavaScript error: resource://gre/modules/TelemetryUtils.sys.mjs, line 143: TypeError: date is undefined
+DevTools listening on ws://127.0.0.1:57215/devtools/browser/7a630b1e-fb87-45c3-92d2-b151587baa99
+console.error: ({})
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://consopt.www8.receita.fazenda.gov.br."
+console.error: ({})
+1692285140170	Marionette	INFO	Stopped listening on port 33419
