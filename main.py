@@ -10,6 +10,7 @@ import requests
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import NoSuchElementException
 import undetected_chromedriver as uc
 
 
@@ -50,6 +51,7 @@ def table_to_dict(data):
 
 
 def consultar_simples_nacional_scrap(cnpj):
+    print("Inciando Scrap...")
     delay = 10
     url = "https://consopt.www8.receita.fazenda.gov.br/consultaoptantes"
     opcoes = uc.ChromeOptions()
@@ -58,22 +60,25 @@ def consultar_simples_nacional_scrap(cnpj):
 
     browser.get(url)
 
+    print("Capturando cookies")
     pickle.dump(browser.get_cookies(), open("cookies.pkl", "wb"))
-    time.sleep(2)
+    time.sleep(1)
+
 
     cnpj_input = browser.find_element(By.NAME, "Cnpj")
     time.sleep(1)
 
+    print("Setando cookies no loopback e enviando CNPJ")
     if os.path.isfile("cookies.pkl"):
         cookies = pickle.load(open("cookies.pkl", "rb"))
 
     for cookie in cookies:
         browser.add_cookie(cookie)
+
     time.sleep(1)
-
     cnpj_input.send_keys(cnpj)
-    time.sleep(2)
 
+    print("Carregando página de dados")
     input_text = WebDriverWait(browser, delay).until(
         EC.presence_of_element_located((By.CLASS_NAME, "form-control"))
     )
@@ -91,7 +96,7 @@ def consultar_simples_nacional_scrap(cnpj):
         EC.presence_of_all_elements_located((By.CLASS_NAME, "spanValorVerde"))
     )
 
-
+    print("Capturando dados")
     more_info_button = browser.find_element(By.XPATH, "/html/body/div/div[2]/div[3]/div[1]/button")
     more_info_button.click()
 
@@ -99,14 +104,21 @@ def consultar_simples_nacional_scrap(cnpj):
     consult_data = browser.find_element(By.XPATH, "/html/body/div/div[2]/h5/span").text
     bussines_name = browser.find_element(By.XPATH, '/html/body/div/div[2]/div[1]/div[2]/span[3]').text
     sn_status = browser.find_element(By.XPATH, "/html/body/div/div[2]/div[2]/div[2]/span[1]").text
-    options_table = browser.find_element(By.XPATH, "/html/body/div/div[2]/div[3]/div[2]/div[1]/div[2]/table").text
-    table = table_to_dict(options_table)
+
+    try:
+        options_table = browser.find_element(By.XPATH, "/html/body/div/div[2]/div[3]/div[2]/div[1]/div[2]/table").text
+        table = table_to_dict(options_table)
+    except (NoSuchElementException):
+        print("Sem períodos anteriores")
+        table = None
 
     pdf_64 = pdf_converter(browser, By)
 
     browser.quit()
+    print("Fechando browser e compilando dados")
 
     data_dict = {
+    "CNPJ": cnpj,
     "Data da consulta": consult_data,
     "Nome empresarial": bussines_name,
     "Situação no Simples Nacional": sn_status,
@@ -115,11 +127,12 @@ def consultar_simples_nacional_scrap(cnpj):
     }
 
     dict_to_json(data_dict)
+    print("Sucesso!")
 
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
-        print("Uso: python script.py <cnpj>")
+        print("Uso: python main.py <cnpj>")
         sys.exit(1)
 
     cnpj = sys.argv[1]
