@@ -32,6 +32,7 @@ def dict_to_json(dict):
         file.write(json_data)
 
     print("JSON salvo com sucesso em:", output_file)
+    print(json_data)
 
 
 def table_to_dict(data):
@@ -45,6 +46,7 @@ def table_to_dict(data):
         "Detalhamento": ' '.join(columns[2:])
         }
         table_data.append(data)
+    return table_data
 
 
 def consultar_simples_nacional_scrap(cnpj):
